@@ -1,6 +1,6 @@
 export default function Resposta() {
     return (
-        <section className={"cardVirado"}>
+        <section className={"cardVirado hidden"}>
             <h2>Uma extensão de linguagem do JavaScript</h2>
             <div className={"botoesResposta"}>
                 <button className={"naoLembrei"}>Não lembrei</button>
