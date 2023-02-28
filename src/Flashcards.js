@@ -5,47 +5,42 @@ import Respondido from "./Respondido"
 import cards from "./cards"
 
 export default function Flashcards() {
-    const [indexCard, setIndexCard] = useState(0);
+    const [indexPergunta, setIndexPergunta] = useState(0);
     const [exibirPergunta, setExibirPergunta] = useState(false);
-    const [cardClicado, setCardClicado] = useState(null)
+
+    const Flashcards = []
+
+    for (let i = 0; i < cards.length; i++) {
+        Flashcards.push(
+            <section key={i} className={"cardFechado"}>
+                <h2>Pergunta {i + 1}</h2>
+                <button onClick={virarFlashcard}>
+                    <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
+                </button>
+            </section>
+        )
+    }
 
     function virarFlashcard(event) {
         const cardSelecionado = event.currentTarget.parentNode;
         cardSelecionado.classList.add("hidden");
         const randomIndex = Math.floor(Math.random() * cards.length);
-        setIndexCard(randomIndex);
+        setIndexPergunta(randomIndex);
         setExibirPergunta(true);
     }
 
     return (
         <article>
             <Pergunta
-                question={cards[indexCard].question}
+                question={cards[indexPergunta].question}
                 exibirPergunta={exibirPergunta}
-                indexCard={indexCard}
+                indexPergunta={indexPergunta}
             />
             <Resposta
-                answer={cards[indexCard].answer}
+                answer={cards[indexPergunta].answer}
             />
             <Respondido />
-            <section className={"cardFechado"}>
-                <h2>Pergunta 1</h2>
-                <button onClick={virarFlashcard}>
-                    <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
-                </button>
-            </section>
-            <section className={"cardFechado"}>
-                <h2>Pergunta 2</h2>
-                <button onClick={virarFlashcard}>
-                    <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
-                </button>
-            </section>
-            <section className={"cardFechado"}>
-                <h2>Pergunta 3</h2>
-                <button onClick={virarFlashcard}>
-                    <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
-                </button>
-            </section>
+            {Flashcards}
         </article>
     )
 }
