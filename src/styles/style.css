@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;700&family=Righteous&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FB6B6B;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 42px;
+    margin-bottom: 51px;
+
+    font-family: 'Righteous';
+    font-size: 36px;
+    color: white;
+}
+
+header img {
+    max-height: 60px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 90px;
+}
+
+section {
+    background-color: white;
+    display: flex;
+    width: 300px;
+    height: 65px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+
+    font-family: 'Recursive';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #333333;
+}
+
+section img {
+    max-height: 23px;
+}
+
+section button {
+    border: none;
+    background-color: white;
+}
+
+.cardAberto {
+    background-color: #FFFFD4;
+    min-height: 131px;
+    font-weight: 400;
+    align-items: flex-start;
+    padding-top: 18px;
+    padding-bottom: 30px;
+    height: fit-content;
+    position: relative;
+}
+
+.cardAberto button {
+    background-color: #FFFFD4;
+    position: absolute;
+    right: 15px;
+    bottom: 6px;
+}
+
+.cardVirado {
+    background-color: #FFFFD4;
+    min-height: 131px;
+    font-weight: 400;
+    align-items: flex-start;
+    padding-top: 18px;
+    padding-bottom: 30px;
+    height: fit-content;
+    flex-direction: column;
+}
+
+.botoesResposta {
+    display: flex;
+    gap: 7px;
+    margin-top: 10px;
+    margin-left: -5px;
+    margin-bottom: -15px;
+}
+
+.botoesResposta button {
+    height: 37px;
+    width: 85px;
+    border-radius: 5px;
+
+    font-family: 'Recursive';
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: white;
+}
+
+.naoLembrei {
+    background-color: #FF3030;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.quaseNaoLembrei {
+    background-color: #FF922E;
+}
+
+.zap {
+    background-color: #2FBE34;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Recursive';
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+}
