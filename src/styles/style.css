@@ -124,6 +124,21 @@ section button {
     background-color: #2FBE34;
 }
 
+.cardNaoLembrei {
+    color: #FF3030;
+    text-decoration: line-through;
+}
+
+.cardQuaseNaoLembrei {
+    color: #FF922E;
+    text-decoration: line-through;
+}
+
+.cardZap {
+    color: #2FBE34;
+    text-decoration: line-through;
+}
+
 footer {
     position: fixed;
     bottom: 0;
