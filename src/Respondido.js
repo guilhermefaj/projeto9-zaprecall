@@ -1,24 +1,42 @@
+import styled from "styled-components"
+import { StyledSection } from "./styles"
+
 export default function Respondido() {
     return (
         <>
-            <section className={"cardNaoLembrei hidden"}>
+            <CardNaoLembrei>
                 <h2>
                     Pergunta
                 </h2>
                 <img src={"/projeto__zaprecall__recursos/assets/icone_erro.png"} />
-            </section>
-            <section className={"cardQuaseNaoLembrei hidden"}>
+            </CardNaoLembrei>
+            <CardQuaseNaoLembrei>
                 <h2>
                     Pergunta
                 </h2>
                 <img src={"/projeto__zaprecall__recursos/assets/icone_quase.png"} />
-            </section>
-            <section className={"cardZap hidden"}>
+            </CardQuaseNaoLembrei>
+            <CardLembrei>
                 <h2>
                     Pergunta
                 </h2>
                 <img src={"/projeto__zaprecall__recursos/assets/icone_certo.png"} />
-            </section>
+            </CardLembrei>
         </>
     )
 }
+
+const CardNaoLembrei = styled(StyledSection)`
+    color: #FF3030;
+    text-decoration: line-through;
+`
+
+const CardQuaseNaoLembrei = styled(StyledSection)`
+    color: #FF922E;
+    text-decoration: line-through;
+`
+
+const CardLembrei = styled(StyledSection)`
+    color: #2FBE34;
+    text-decoration: line-through;
+`
