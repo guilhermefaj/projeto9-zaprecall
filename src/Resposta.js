@@ -1,29 +1,46 @@
 import styled from "styled-components"
-import { StyledSection } from "./styles"
 
-
-export default function Resposta() {
+export default function Resposta(props) {
     return (
         <StyledResposta>
-            <h2>Uma extensão de linguagem do JavaScript</h2>
-            <BotoesResposta>
-                <NaoLembrei>Não lembrei</NaoLembrei>
-                <QuaseNaoLembrei>Quase não lembrei</QuaseNaoLembrei>
-                <Lembrei>Zap!</Lembrei>
-            </BotoesResposta>
+            {props.exibirResposta ? (
+                <>
+                    <h2>{props.answer}</h2>
+                    <BotoesResposta>
+                        <NaoLembrei>Não lembrei</NaoLembrei>
+                        <QuaseNaoLembrei>Quase não lembrei</QuaseNaoLembrei>
+                        <Lembrei>Zap!</Lembrei>
+                    </BotoesResposta>
+                </>
+            ) : (
+                <></>
+            )}
         </StyledResposta>
     )
 }
 
-const StyledResposta = styled(StyledSection)`
+const StyledResposta = styled.section`
+    
     background-color: #FFFFD4;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
     min-height: 131px;
-    font-weight: 400;
+    height: fit-content;
     align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 18px;
     padding-bottom: 30px;
-    height: fit-content;
-    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+
+    font-family: 'Recursive';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #333333;
 `
 
 const BotoesResposta = styled.div`
