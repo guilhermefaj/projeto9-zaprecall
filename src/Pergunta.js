@@ -4,15 +4,26 @@ import { useState } from "react"
 
 export default function Pergunta(props) {
 
-    return (
+    function clickNaoLembrei() {
+        props.setResultado("naoLembrei")
+    }
 
+    function clickQuaseNaoLembrei() {
+        props.setResultado("quaseNaoLembrei")
+    }
+
+    function clickLembrei() {
+        props.setResultado("lembrei")
+    }
+
+    return (
         (props.exibirResposta ? (
             <StyledResposta>
                 <h2>{props.answer}</h2>
                 <BotoesResposta>
-                    <NaoLembrei>Não lembrei</NaoLembrei>
-                    <QuaseNaoLembrei>Quase não lembrei</QuaseNaoLembrei>
-                    <Lembrei>Zap!</Lembrei>
+                    <ButtonNaoLembrei onClick={clickNaoLembrei}>Não lembrei</ButtonNaoLembrei>
+                    <ButtonQuaseNaoLembrei onClick={clickQuaseNaoLembrei}>Quase não lembrei</ButtonQuaseNaoLembrei>
+                    <ButtonLembrei onClick={clickLembrei}>Zap!</ButtonLembrei>
                 </BotoesResposta>
             </StyledResposta>
         ) : (
@@ -97,16 +108,16 @@ const BotoesResposta = styled.div`
     }
 `
 
-const NaoLembrei = styled.button`
+const ButtonNaoLembrei = styled.button`
     background-color: red;
     padding-right: 10px;
     padding-left: 10px;
 `
 
-const QuaseNaoLembrei = styled.button`
+const ButtonQuaseNaoLembrei = styled.button`
     background-color: #FF922E;
 `
 
-const Lembrei = styled.button`
+const ButtonLembrei = styled.button`
     background-color: #2FBE34;
 `
