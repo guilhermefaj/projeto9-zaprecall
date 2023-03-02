@@ -6,56 +6,44 @@ import cards from "./cards"
 import styled from "styled-components"
 
 export default function Flashcards() {
-    const [indexCard, setIndexCard] = useState(0);
     const [exibirPergunta, setExibirPergunta] = useState(false);
-    const [cardsOcultos, setCardsOcultos] = useState([]);
     const [cardSelecionado, setCardSelecionado] = useState(null);
     const [exibirResposta, setExibirResposta] = useState(false);
 
     function virarFlashcard(index) {
-        setIndexCard(index);
         setCardSelecionado(index);
         setExibirPergunta(true);
-        setCardsOcultos([...cardsOcultos, index]);
+        setExibirResposta(false)
     }
 
     function virarPergunta() {
         setExibirResposta(true);
+        setExibirPergunta(false)
     }
 
 
     return (
         <Article>
-
             <Respondido />
             {cards.map((card, i) => {
                 return (
-                    <StyledSection key={i}>
-                        {cardSelecionado === i ?
-                            (exibirResposta ? (
-                                <Resposta
-                                    answer={cards[indexCard].answer}
-                                    exibirResposta={exibirResposta}
-                                />
-                            ) : (
-                                <Pergunta
-                                    question={cards[indexCard].question}
-                                    exibirPergunta={exibirPergunta}
-                                    indexCard={indexCard}
-                                    exibirResposta={exibirResposta}
-                                    virarPergunta={virarPergunta}
-                                />
-                            ))
-
-                            : (
-                                <>
-                                    <h2>Pergunta {i + 1}</h2>
-                                    <PlayButton onClick={() => virarFlashcard(i)}>
-                                        <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
-                                    </PlayButton>
-                                </>
-                            )}
-                    </StyledSection>
+                    cardSelecionado === i ? (
+                        <Pergunta
+                            question={cards[i].question}
+                            answer={cards[i].answer}
+                            exibirPergunta={exibirPergunta}
+                            i={i}
+                            exibirResposta={exibirResposta}
+                            virarPergunta={virarPergunta}
+                        />
+                    ) : (
+                        <StyledSection>
+                            <h2>Pergunta {i + 1}</h2>
+                            <PlayButton onClick={() => virarFlashcard(i)}>
+                                <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
+                            </PlayButton>
+                        </StyledSection>
+                    )
                 )
             })}
         </Article >
