@@ -1,8 +1,15 @@
 import Flashcards from "./Flashcards";
 import styled from "styled-components";
 import cards from "./cards";
+import { useState } from "react";
 
 export default function App() {
+
+  const [perguntasRespondidas, setPerguntasRespondidas] = useState(0)
+
+  function contaPerguntasRespondidas() {
+    setPerguntasRespondidas((estado) => estado + 1)
+  }
 
   return (
     <>
@@ -10,9 +17,11 @@ export default function App() {
         <img src={"/projeto__zaprecall__recursos/assets/logo.png"} />
         <h1>ZapRecall</h1>
       </Header>
-      <Flashcards />
+      <Flashcards
+        contaPerguntasRespondidas={contaPerguntasRespondidas}
+      />
       <Footer>
-        1/{cards.length} Concluídos
+        {perguntasRespondidas}/{cards.length} Concluídos
       </Footer>
     </>
   );

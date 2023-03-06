@@ -1,19 +1,55 @@
 import cards from "./cards"
 import styled from "styled-components"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import NaoLembrei from "./NaoLembrei"
+import QuaseNaoLembrei from "./QuaseNaoLembrei"
+import Lembrei from "./Lembrei"
 
 export default function Pergunta(props) {
 
+    const [resultado, setResultado] = useState(undefined);
+
+    const opcoesResposta = {
+        naoLembrei: <NaoLembrei
+            i={props.i + 1} />,
+        quaseNaoLembrei: <QuaseNaoLembrei
+            i={props.i + 1} />,
+        lembrei: <Lembrei
+            i={props.i + 1} />
+    }
+
     function clickNaoLembrei() {
-        props.setResultado("naoLembrei")
+        setResultado("naoLembrei");
+        props.contaPerguntasRespondidas();
     }
 
     function clickQuaseNaoLembrei() {
-        props.setResultado("quaseNaoLembrei")
+        setResultado("quaseNaoLembrei");
+        props.contaPerguntasRespondidas();
     }
 
     function clickLembrei() {
-        props.setResultado("lembrei")
+        setResultado("lembrei");
+        props.contaPerguntasRespondidas();
+    }
+
+    if (
+        resultado !== undefined
+    ) {
+        return opcoesResposta[resultado]
+    }
+
+    if (
+        !props.estaSelecionado
+    ) {
+        return (
+            <StyledSection>
+                <h2>Pergunta {props.i + 1}</h2>
+                <PlayButton onClick={() => props.virarFlashcard()}>
+                    <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
+                </PlayButton>
+            </StyledSection>
+        )
     }
 
     return (
@@ -36,6 +72,34 @@ export default function Pergunta(props) {
         ))
     )
 }
+
+
+const StyledSection = styled.section`
+    background-color: white;
+    display: flex;
+    width: 300px;
+    height: 65px;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+
+    font-family: 'Recursive';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #333333;
+`;
+
+const PlayButton = styled.button`
+    border: none;
+    background-color: white;
+    img {
+    max-height: 23px;
+    }
+`
 
 const StyledPergunta = styled.section`
     background-color: #FFFFD4;
