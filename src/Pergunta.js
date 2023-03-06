@@ -43,9 +43,9 @@ export default function Pergunta(props) {
         !props.estaSelecionado
     ) {
         return (
-            <StyledSection>
-                <h2>Pergunta {props.i + 1}</h2>
-                <PlayButton onClick={() => props.virarFlashcard()}>
+            <StyledSection data-test="flashcard">
+                <h2 data-test="flashcard-text">Pergunta {props.i + 1}</h2>
+                <PlayButton data-test="play-btn" onClick={() => props.virarFlashcard()}>
                     <img src={"/projeto__zaprecall__recursos/assets/seta_play.png"} />
                 </PlayButton>
             </StyledSection>
@@ -55,16 +55,16 @@ export default function Pergunta(props) {
     return (
         (props.exibirResposta ? (
             <StyledResposta>
-                <h2>{props.answer}</h2>
+                <h2 data-test="flashcard-text">{props.answer}</h2>
                 <BotoesResposta>
-                    <ButtonNaoLembrei onClick={clickNaoLembrei}>Não lembrei</ButtonNaoLembrei>
-                    <ButtonQuaseNaoLembrei onClick={clickQuaseNaoLembrei}>Quase não lembrei</ButtonQuaseNaoLembrei>
-                    <ButtonLembrei onClick={clickLembrei}>Zap!</ButtonLembrei>
+                    <ButtonNaoLembrei data-test="no-btn" onClick={clickNaoLembrei}>Não lembrei</ButtonNaoLembrei>
+                    <ButtonQuaseNaoLembrei data-test="partial-btn" onClick={clickQuaseNaoLembrei}>Quase não lembrei</ButtonQuaseNaoLembrei>
+                    <ButtonLembrei data-test="zap-btn" onClick={clickLembrei}>Zap!</ButtonLembrei>
                 </BotoesResposta>
             </StyledResposta>
         ) : (
             <StyledPergunta>
-                <h2>{props.question}</h2>
+                <h2 data-test="flashcard-text">{props.question}</h2>
                 <button onClick={props.virarPergunta}>
                     <img src={"/projeto__zaprecall__recursos/assets/seta_virar.png"} alt={"seta de virar"} />
                 </button>

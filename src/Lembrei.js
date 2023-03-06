@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default function Lembrei(props) {
     return (
         <CardLembrei>
-            <h2>Pergunta {props.i}</h2>
-            <img src={"/projeto__zaprecall__recursos/assets/icone_certo.png"} />
+            <h2 data-test="flashcard-text">Pergunta {props.i}</h2>
+            <img data-test="zap-icon" src={"/projeto__zaprecall__recursos/assets/icone_certo.png"} />
         </CardLembrei>
     )
 }

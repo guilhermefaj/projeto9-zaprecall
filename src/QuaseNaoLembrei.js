@@ -3,8 +3,8 @@ import styled from "styled-components";
 export default function QuaseNaoLembrei(props) {
     return (
         <CardQuaseNaoLembrei>
-            <h2>Pergunta {props.i}</h2>
-            <img src={"/projeto__zaprecall__recursos/assets/icone_quase.png"} />
+            <h2 data-test="flashcard-text">Pergunta {props.i}</h2>
+            <img data-test="partial-icon" src={"/projeto__zaprecall__recursos/assets/icone_quase.png"} />
         </CardQuaseNaoLembrei>
     )
 }

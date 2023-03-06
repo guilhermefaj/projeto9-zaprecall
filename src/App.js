@@ -20,7 +20,7 @@ export default function App() {
       <Flashcards
         contaPerguntasRespondidas={contaPerguntasRespondidas}
       />
-      <Footer>
+      <Footer data-test="footer">
         {perguntasRespondidas}/{cards.length} Concluídos
       </Footer>
     </>

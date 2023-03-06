@@ -25,6 +25,7 @@ export default function Flashcards(props) {
             {cards.map((card, i) => {
                 return (
                     <Pergunta
+                        key={cards[i].question}
                         question={cards[i].question}
                         answer={cards[i].answer}
                         exibirPergunta={exibirPergunta}
